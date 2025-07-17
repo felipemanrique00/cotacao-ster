@@ -1,0 +1,56 @@
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Busca de Viagem - Ster</title>
+  <script src="https://diversa.infotravel.com.br/b2c/public/motor/v1/motor.js"></script>
+  <script>
+    function getParams() {
+      const params = new URLSearchParams(window.location.search);
+      return {
+        origin: params.get("origin") || '',
+        destiny: params.get("destiny") || '',
+        checkIn: params.get("checkIn") || '',
+        checkOut: params.get("checkOut") || '',
+        adults: params.get("adults") || '',
+        children: params.get("children") || '',
+        type: params.get("type") || 'package'
+      };
+    }
+
+    window.addEventListener("DOMContentLoaded", () => {
+      const data = getParams();
+      document.querySelector('[data-form-engine]').value = data.type;
+      document.querySelector('[data-form-origin]').value = data.origin;
+      document.querySelector('[data-form-destiny]').value = data.destiny;
+      document.querySelector('[data-form-check-in]').value = data.checkIn;
+      document.querySelector('[data-form-check-out]').value = data.checkOut;
+      document.querySelector('[data-form-adults]').value = data.adults;
+      document.querySelector('[data-form-children]').value = data.children;
+    });
+  </script>
+</head>
+<body>
+  <h2>🔎 Buscando opções de viagem...</h2>
+
+  <div class="infotravel-motor" 
+       data-key="E19CFB66D399B36F9AD99499E6C5D8B1" 
+       data-sg-company="106935" 
+       data-b2c-url="https://diversa.infotravel.com.br/" 
+       data-engine-base-url="https://diversa.infotravel.com.br/" 
+       data-target="_blank">
+
+    <form>
+      <input type="hidden" data-form-engine value="package" />
+      <input type="hidden" data-form-origin />
+      <input type="hidden" data-form-destiny />
+      <input type="hidden" data-form-check-in />
+      <input type="hidden" data-form-check-out />
+      <input type="hidden" data-form-adults />
+      <input type="hidden" data-form-children />
+    </form>
+
+  </div>
+</body>
+</html>
